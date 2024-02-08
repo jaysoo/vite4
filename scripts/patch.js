@@ -35,6 +35,8 @@ if (!content.includes('PATCHED')) {
     async (configFilePath, options, context)=>{
     //PATCHED
 
+    delete process['__pw_initiator__'];
+
     const { resolveConfig } = await import('vite');
     await resolveConfig({ configFile: path_1.join(context.workspaceRoot, 'apps/demo/vite.config.js'), mode: 'development' }, 'build');
     const config_utils_1 = require('@nx/devkit/src/utils/config-utils');
