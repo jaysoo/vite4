@@ -11,7 +11,7 @@ if (!content.includes('PATCHED')) {
     async (configFilePath, options, context)=>{
     //PATCHED
     console.log('>>>> VITE RUNNING');
-    return {};
+    // return {};
     `
   );
   fs.writeFileSync(file, updated);
