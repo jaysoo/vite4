@@ -16,6 +16,10 @@
   },
   "plugins": [
     {
+      "plugin": "@nx/playwright/plugin",
+      "options": {}
+    },
+    {
       "plugin": "@nx/vite/plugin",
       "options": {}
     },
