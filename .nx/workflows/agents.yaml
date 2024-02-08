@@ -9,6 +9,6 @@ launch-templates:
         uses: 'nrwl/nx-cloud-workflows/v3.1/workflow-steps/install-node-modules/main.yaml'
       - name: Install Browsers (if needed)
         uses: 'nrwl/nx-cloud-workflows/v3.1/workflow-steps/install-browsers/main.yaml'
-          # - name: Patch package
-          #   script: node scripts/patch.js
+      - name: Patch package
+        script: node scripts/patch.js
 
