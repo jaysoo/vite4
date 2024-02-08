@@ -11,13 +11,13 @@ if (!content.includes('PATCHED')) {
     async (configFilePath, options, context)=>{
     //PATCHED
     console.log('>>>> VITE RUNNING');
-    const absoluteConfigFilePath = (0, _devkit.joinPathFragments)(context.workspaceRoot, configFilePath);
-    const { resolveConfig } = await (0, _executorutils.loadViteDynamicImport)();
-    const viteConfig = await resolveConfig({
-        configFile: absoluteConfigFilePath,
-        mode: 'development'
-    }, 'build');
-    console.log('>>> vite config', viteConfig);
+    //const absoluteConfigFilePath = (0, _devkit.joinPathFragments)(context.workspaceRoot, configFilePath);
+    //const { resolveConfig } = await (0, _executorutils.loadViteDynamicImport)();
+    //const viteConfig = await resolveConfig({
+    //    configFile: absoluteConfigFilePath,
+    //    mode: 'development'
+    //}, 'build');
+    //console.log('>>> vite config', viteConfig);
     return {};
     `
   );
