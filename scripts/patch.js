@@ -11,7 +11,14 @@ if (!content.includes('PATCHED')) {
     async (configFilePath, options, context)=>{
     //PATCHED
     console.log('>>>> VITE RUNNING');
-    // return {};
+    const absoluteConfigFilePath = (0, _devkit.joinPathFragments)(context.workspaceRoot, configFilePath);
+    const { resolveConfig } = await (0, _executorutils.loadViteDynamicImport)();
+    const viteConfig = await resolveConfig({
+        configFile: absoluteConfigFilePath,
+        mode: 'development'
+    }, 'build');
+    console.log('>>> vite config', viteConfig);
+    return {};
     `
   );
   fs.writeFileSync(file, updated);
@@ -44,7 +51,9 @@ if (!content.includes('PATCHED')) {
     async (configFilePath, options, context)=>{
     //PATCHED
     console.log('>>>> PLAYWRIGHT RUNNING');
-    // return {};
+    const playwrightConfig = await (0, config_utils_1.loadConfigFile)((0, path_1.join)(context.workspaceRoot, configFilePath));
+    console.log('>>> playwright config', playwrightConfig);
+    return {};
     `
   );
   fs.writeFileSync(file, updated);
