@@ -35,12 +35,12 @@ if (!content.includes('PATCHED')) {
     async (configFilePath, options, context)=>{
     //PATCHED
 
-    delete process['__pw_initiator__'];
-
     const { resolveConfig } = await import('vite');
     await resolveConfig({ configFile: path_1.join(context.workspaceRoot, 'apps/demo/vite.config.js'), mode: 'development' }, 'build');
     const config_utils_1 = require('@nx/devkit/src/utils/config-utils');
+    delete process['__pw_initiator__'];
     await (0, config_utils_1.loadConfigFile)(path_1.join(context.workspaceRoot, 'apps/demo-e2e/playwright.config.js'));
+    delete process['__pw_initiator__'];
     console.log('>>>> JEST RUNNING');
     `
   );
