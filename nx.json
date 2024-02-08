@@ -22,6 +22,10 @@
       }
     },
     {
+      "plugin": "@nx/vite/plugin",
+      "options": {}
+    },
+    {
       "plugin": "@nx/jest/plugin",
       "options": {
         "targetName": "test"
