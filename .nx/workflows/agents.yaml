@@ -1,0 +1,14 @@
+launch-templates:
+  custom-linux:
+    resource-class: "docker_linux_amd64/medium"
+    image: 'ubuntu22.04-node20.9-v2'
+    init-steps:
+      - name: Checkout
+        uses: 'nrwl/nx-cloud-workflows/v3.1/workflow-steps/checkout/main.yaml'
+      - name: Install Node Modules
+        uses: 'nrwl/nx-cloud-workflows/v3.1/workflow-steps/install-node-modules/main.yaml'
+      - name: Install Browsers (if needed)
+        uses: 'nrwl/nx-cloud-workflows/v3.1/workflow-steps/install-browsers/main.yaml'
+          # - name: Patch package
+          #   script: node scripts/patch.js
+
