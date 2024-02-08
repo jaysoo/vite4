@@ -16,18 +16,18 @@
   },
   "plugins": [
     {
+      "plugin": "@nx/jest/plugin",
+      "options": {
+        "targetName": "test"
+      }
+    },
+    {
       "plugin": "@nx/playwright/plugin",
       "options": {}
     },
     {
       "plugin": "@nx/vite/plugin",
       "options": {}
-    },
-    {
-      "plugin": "@nx/jest/plugin",
-      "options": {
-        "targetName": "test"
-      }
     }
   ],
   "generators": {
