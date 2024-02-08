@@ -11,6 +11,7 @@ if (!content.includes('PATCHED')) {
     async (configFilePath, options, context)=>{
     //PATCHED
     console.log('>>>> VITE RUNNING');
+    return {};
     `
   );
   fs.writeFileSync(file, updated);
@@ -27,7 +28,6 @@ if (!content.includes('PATCHED')) {
     async (configFilePath, options, context)=>{
     //PATCHED
     console.log('>>>> JEST RUNNING');
-    return {};
     `
   );
   fs.writeFileSync(file, updated);
