@@ -44,7 +44,7 @@ if (!content.includes('PATCHED')) {
     async (configFilePath, options, context)=>{
     //PATCHED
     console.log('>>>> PLAYWRIGHT RUNNING');
-    return {};
+    // return {};
     `
   );
   fs.writeFileSync(file, updated);
