@@ -26,23 +26,9 @@
       }
     },
     {
-      "plugin": "@nx/eslint/plugin",
-      "options": {
-        "targetName": "lint"
-      }
-    },
-    {
       "plugin": "@nx/playwright/plugin",
       "options": {
         "targetName": "e2e"
-      }
-    },
-    {
-      "plugin": "@nx/webpack/plugin",
-      "options": {
-        "buildTargetName": "build",
-        "serveTargetName": "serve",
-        "previewTargetName": "preview"
       }
     },
     {
@@ -69,6 +55,6 @@
       }
     }
   },
-  "cacheBust": 3,
+  "cacheBust": 4,
   "nxCloudAccessToken": "ZjYzOTY0ODktMmI1MS00NWIzLWIxYTUtYzIwMjZlZDUzM2IyfHJlYWQtd3JpdGU="
 }
