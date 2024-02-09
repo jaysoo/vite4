@@ -20,14 +20,6 @@
       "options": {
         "targetName": "test"
       }
-    },
-    {
-      "plugin": "@nx/playwright/plugin",
-      "options": {}
-    },
-    {
-      "plugin": "@nx/vite/plugin",
-      "options": {}
     }
   ],
   "generators": {
