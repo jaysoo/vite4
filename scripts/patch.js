@@ -166,6 +166,7 @@ if (!content.includes('PATCHED')) {
     `
     const modules = optionsModules === "auto" ? api.caller(supportsStaticESM) ? false : "commonjs" : optionsModules
     //PATCHED
+    console.trace();
     console.log('>>>>> @babel/preset-env', {modules, optionsModules, esm: api.caller(supportsStaticESM), NODE_ENV: process.env.NODE_ENV });
     `
   );
