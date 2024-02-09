@@ -141,16 +141,12 @@ if (!content.includes('PATCHED')) {
 }
 
 
-file = 'node_modules/@nx/react/babel.js'
+file = 'node_modules/@nx/js/babel.js'
 content = fs.readFileSync(file).toString();
 if (!content.includes('PATCHED')) {
   const updated = content.replace(
-    `api.assertVersion(7);`,
-    `
-    api.assertVersion(7);
-    //PATCHED
-    console.log('>>> @nx/react/babel');
-    `
+    `const isTest = api.caller((caller) => caller?.isTest);`,
+    `const isTest = api.caller((caller) => caller?.isTest) || process.env.JEST_WORKER_ID; // PATCHED`
   );
   fs.writeFileSync(file, updated);
 } else {
