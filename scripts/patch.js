@@ -45,7 +45,7 @@ if (!content.includes('PATCHED')) {
   ).replace(
     `this._loadModule(`,
     `
-    console.log(>>>> _loadModule', localModule, from, moduleName, modulePath);
+    console.log('>>>> _loadModule', localModule, from, moduleName, modulePath);
     this._loadModule(
     `
   )
