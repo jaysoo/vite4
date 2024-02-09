@@ -26,6 +26,23 @@ if (!content.includes('PATCHED')) {
   console.log('already patched');
 }
 
+file = 'node_modules/jest-runtime/build/index.js'
+content = fs.readFileSync(file).toString();
+if (!content.includes('PATCHED')) {
+  const updated = content.replace(
+    `return new (_vm().Script)(this.wrapCodeInModuleWrapper(scriptSource), {`,
+    `
+    //PATCHED
+    console.trace(">>> JEST RUNNER");
+    return new (_vm().Script)(this.wrapCodeInModuleWrapper(scriptSource), {
+    `
+  );
+  fs.writeFileSync(file, updated);
+} else {
+  console.log('already patched');
+}
+
+
 file = 'node_modules/@nx/jest/src/plugins/plugin.js';
 content = fs.readFileSync(file).toString();
 if (!content.includes('PATCHED')) {
