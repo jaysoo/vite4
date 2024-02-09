@@ -36,7 +36,19 @@ if (!content.includes('PATCHED')) {
     console.trace(">>> JEST RUNTIME");
     return new (_vm().Script)(this.wrapCodeInModuleWrapper(scriptSource), {
     `
-  );
+  ).replace(
+    `requireInternalModule(from, to) {`,
+    `
+    requireInternalModule(from, to) {
+    console.log('>>>> requireInternalModule', from, to);
+    `
+  ).replace(
+    `this._loadModule(`,
+    `
+    console.log(>>>> _loadModule', localModule, from, moduleName, modulePath);
+    this._loadModule(
+    `
+  )
   fs.writeFileSync(file, updated);
 } else {
   console.log('already patched');
@@ -50,8 +62,6 @@ if (!content.includes('PATCHED')) {
     `
     //PATCHED
     console.trace(">>> JEST RUNNER");
-    console.log('>>> config', config);
-    console.log('>>> globalConfig', globalConfig);
     const {leakDetector, result} = await runTestInternal(
     `
   );
