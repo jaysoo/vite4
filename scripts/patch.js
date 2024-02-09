@@ -48,6 +48,11 @@ if (!content.includes('PATCHED')) {
     console.log('>>>> _loadModule', localModule, from, moduleName, modulePath);
     this._loadModule(
     `
+  ).replace(
+    `const transformedFile = this._scriptTransformer.transform(`,
+    `
+    console.log('>>> transformFile', filename, options, this._getFullTransformationOptions(options));
+    const transformedFile = this._scriptTransformer.transform(`
   )
   fs.writeFileSync(file, updated);
 } else {
