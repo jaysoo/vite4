@@ -33,7 +33,7 @@ if (!content.includes('PATCHED')) {
     `return new (_vm().Script)(this.wrapCodeInModuleWrapper(scriptSource), {`,
     `
     //PATCHED
-    console.trace(">>> JEST RUNTIME");
+    console.trace(">>> JEST RUNTIME", scriptSource);
     return new (_vm().Script)(this.wrapCodeInModuleWrapper(scriptSource), {
     `
   ).replace(
