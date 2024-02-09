@@ -150,7 +150,23 @@ if (!content.includes('PATCHED')) {
     api.assertVersion(7);
     //PATCHED
     console.log('>>> @nx/react/babel');
-throw new Error();
+    `
+  );
+  fs.writeFileSync(file, updated);
+} else {
+  console.log('already patched');
+}
+
+
+file = 'node_modules/@babel/preset-env/lib/index.js';
+content = fs.readFileSync(file).toString();
+if (!content.includes('PATCHED')) {
+  const updated = content.replace(
+    `const modules = optionsModules === "auto" ? api.caller(supportsStaticESM) ? false : "commonjs" : optionsModules`,
+    `
+    const modules = optionsModules === "auto" ? api.caller(supportsStaticESM) ? false : "commonjs" : optionsModules
+    //PATCHED
+    console.log('>>>>> @babel/preset-env', {modules, optionsModules, esm: api.caller(supportsStaticESM)}
     `
   );
   fs.writeFileSync(file, updated);
