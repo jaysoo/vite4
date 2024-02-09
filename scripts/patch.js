@@ -59,6 +59,12 @@ if (!content.includes('PATCHED')) {
     if (!this._environment.global) {
     console.log('global is torn down...');
     `
+  ).replace(
+    `const script = this.createScriptFromCode(transformedCode, filename);`,
+    `
+    console.log('>>> BEFORE createScriptFromCode', filename, transformedCode, options);
+    const script = this.createScriptFromCode(transformedCode, filename);
+    `
   )
   fs.writeFileSync(file, updated);
 } else {
