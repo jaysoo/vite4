@@ -33,7 +33,7 @@ if (!content.includes('PATCHED')) {
     `return new (_vm().Script)(this.wrapCodeInModuleWrapper(scriptSource), {`,
     `
     //PATCHED
-    console.trace(">>> JEST RUNTIME", scriptSource);
+    console.trace(">>> JEST RUNTIME");
     return new (_vm().Script)(this.wrapCodeInModuleWrapper(scriptSource), {
     `
   ).replace(
@@ -61,7 +61,7 @@ if (!content.includes('PATCHED')) {
     `const {leakDetector, result} = await runTestInternal(`,
     `
     //PATCHED
-    console.trace(">>> JEST RUNNER");
+    console.trace(">>> JEST RUNNER", config);
     const {leakDetector, result} = await runTestInternal(
     `
   );
