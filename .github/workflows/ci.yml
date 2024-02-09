@@ -21,7 +21,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - run: npx nx-cloud start-ci-run --distribute-on="5 custom-linux" --stop-agents-after="e2e-ci" --withEnvVars="NX_PREFER_TS_NODE"
+      - run: npx nx-cloud start-ci-run --distribute-on="5 custom-linux" --stop-agents-after="e2e-ci" --withEnvVars="NODE_ENV"
 
       # Cache node_modules
       - uses: actions/setup-node@v3
