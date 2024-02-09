@@ -50,6 +50,8 @@ if (!content.includes('PATCHED')) {
     `
     //PATCHED
     console.trace(">>> JEST RUNNER");
+    console.log('>>> config', config);
+    console.log('>>> globalConfig', globalConfig);
     const {leakDetector, result} = await runTestInternal(
     `
   );
