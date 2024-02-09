@@ -45,6 +45,13 @@ if (!content.includes('PATCHED')) {
     //delete process['__pw_initiator__'];
     console.log('>>>> JEST RUNNING');
     `
+  ).replace(
+
+    `const targetDefaults = (0, project_configuration_utils_1.readTargetDefaultsForTarget)(options.targetName, context.nxJsonConfiguration.targetDefaults, 'nx:run-commands');`,
+    `
+    const targetDefaults = (0, project_configuration_utils_1.readTargetDefaultsForTarget)(options.targetName, context.nxJsonConfiguration.targetDefaults, 'nx:run-commands');
+    console.log('>>>> CACHED', Object.keys(require.cache));
+    `,
   );
   fs.writeFileSync(file, updated);
 } else {
