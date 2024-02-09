@@ -44,7 +44,7 @@ if (!content.includes('PATCHED')) {
     //await (0, config_utils_1.loadConfigFile)(path_1.join(context.workspaceRoot, 'apps/demo-e2e/playwright.config.js'));
     //delete process['__pw_initiator__'];
     console.log('>>>> JEST PATCHED');
-    console.log('>>>> CACHED', Object.keys(require.cache));
+    console.log('>>>> CACHED', Object.keys(require.cache).filter(x => !x.includes('node_modules')));
     `
   ).replace(
 
