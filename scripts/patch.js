@@ -10,7 +10,7 @@ if (!content.includes('PATCHED')) {
     `
     async (configFilePath, options, context)=>{
     //PATCHED
-    console.log('>>>> VITE RUNNING');
+    console.log('>>>> VITE PATCHED');
     //const absoluteConfigFilePath = (0, _devkit.joinPathFragments)(context.workspaceRoot, configFilePath);
     //const { resolveConfig } = await (0, _executorutils.loadViteDynamicImport)();
     //const viteConfig = await resolveConfig({
@@ -43,7 +43,8 @@ if (!content.includes('PATCHED')) {
     //delete process['__pw_initiator__'];
     //await (0, config_utils_1.loadConfigFile)(path_1.join(context.workspaceRoot, 'apps/demo-e2e/playwright.config.js'));
     //delete process['__pw_initiator__'];
-    console.log('>>>> JEST RUNNING');
+    console.log('>>>> JEST PATCHED');
+    console.log('>>>> CACHED', Object.keys(require.cache));
     `
   ).replace(
 
@@ -66,7 +67,7 @@ if (!content.includes('PATCHED')) {
     `
     async (configFilePath, options, context)=>{
     //PATCHED
-    console.log('>>>> PLAYWRIGHT RUNNING');
+    console.log('>>>> PLAYWRIGHT PATCHED');
     // const playwrightConfig = await (0, config_utils_1.loadConfigFile)((0, path_1.join)(context.workspaceRoot, configFilePath));
     // console.log('>>> playwright config', playwrightConfig);
     return {};
