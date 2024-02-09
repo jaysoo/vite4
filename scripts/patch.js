@@ -53,6 +53,12 @@ if (!content.includes('PATCHED')) {
     `
     console.log('>>> transformFile', filename, options, this._getFullTransformationOptions(options));
     const transformedFile = this._scriptTransformer.transform(`
+  ).replace(
+    `execModule(localModule, options, moduleRegistry, from, moduleName) {`,
+    `
+    execModule(localModule, options, moduleRegistry, from, moduleName) {
+    console.log('>>>> execModule?', moduleName, localModule, from, options);
+    `
   )
   fs.writeFileSync(file, updated);
 } else {
