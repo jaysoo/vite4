@@ -54,10 +54,10 @@ if (!content.includes('PATCHED')) {
     console.log('>>> transformFile', filename, options, this._getFullTransformationOptions(options));
     const transformedFile = this._scriptTransformer.transform(`
   ).replace(
-    `execModule(localModule, options, moduleRegistry, from, moduleName) {`,
+    `if (!this._environment.global) {`,
     `
-    execModule(localModule, options, moduleRegistry, from, moduleName) {
-    console.log('>>>> execModule?', moduleName, localModule, from, options);
+    if (!this._environment.global) {
+    console.log('global is torn down...');
     `
   )
   fs.writeFileSync(file, updated);
