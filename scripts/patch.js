@@ -33,8 +33,24 @@ if (!content.includes('PATCHED')) {
     `return new (_vm().Script)(this.wrapCodeInModuleWrapper(scriptSource), {`,
     `
     //PATCHED
-    console.trace(">>> JEST RUNNER");
+    console.trace(">>> JEST RUNTIME");
     return new (_vm().Script)(this.wrapCodeInModuleWrapper(scriptSource), {
+    `
+  );
+  fs.writeFileSync(file, updated);
+} else {
+  console.log('already patched');
+}
+
+file = 'node_modules/jest-runner/build/runTest.js'
+content = fs.readFileSync(file).toString();
+if (!content.includes('PATCHED')) {
+  const updated = content.replace(
+    `const {leakDetector, result} = await runTestInternal(`,
+    `
+    //PATCHED
+    console.trace(">>> JEST RUNNER");
+    const {leakDetector, result} = await runTestInternal(
     `
   );
   fs.writeFileSync(file, updated);
