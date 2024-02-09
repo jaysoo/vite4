@@ -10,6 +10,9 @@ permissions:
   actions: read
   contents: read
 
+env:
+  NX_PREFER_TS_NODE: true
+
 jobs:
   main:
     runs-on: ubuntu-latest
@@ -18,7 +21,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - run: npx nx-cloud start-ci-run --distribute-on="5 custom-linux" --stop-agents-after="e2e-ci"
+      - run: npx nx-cloud start-ci-run --distribute-on="5 custom-linux" --stop-agents-after="e2e-ci" --withEnvVars="NX_PREFER_TS_NODE"
 
       # Cache node_modules
       - uses: actions/setup-node@v3
