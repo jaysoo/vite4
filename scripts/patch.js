@@ -139,3 +139,22 @@ if (!content.includes('PATCHED')) {
 } else {
   console.log('already patched');
 }
+
+
+file = 'node_modules/@nx/react/babel.js'
+content = fs.readFileSync(file).toString();
+if (!content.includes('PATCHED')) {
+  const updated = content.replace(
+    `api.assertVersion(7);`,
+    `
+    api.assertVersion(7);
+    //PATCHED
+    console.log('>>> @nx/react/babel');
+throw new Error();
+    `
+  );
+  fs.writeFileSync(file, updated);
+} else {
+  console.log('already patched');
+}
+
